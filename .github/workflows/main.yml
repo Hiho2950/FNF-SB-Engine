@@ -144,8 +144,8 @@ jobs:
         with:
           name: MacBuild
           path: export/release/macos/bin
-    buildAndroid:
-    name: buildAndroid
+    BuildAndroid:
+    name: BuildAndroid
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
