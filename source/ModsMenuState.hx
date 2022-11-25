@@ -84,8 +84,8 @@ class ModsMenuState extends MusicBeatState
 		add(bg);
 		bg.screenCenter();
 
-		noModsTxt = new FlxText(0, 0, FlxG.width, "NO MODS INSTALLED\nPRESS BACK TO EXIT AND INSTALL A MOD", 48);
-		if(FlxG.random.bool(0.1)) noModsTxt.text += '\nBITCH.'; //meanie
+		noModsTxt = new FlxText(0, 0, FlxG.width, "No Mods Installed!\nPress Back To Exit And Install A Mod!", 48);
+		if(FlxG.random.bool(0.1)) noModsTxt.text += '\nFreak.'; //meanie
 		noModsTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		noModsTxt.scrollFactor.set();
 		noModsTxt.borderSize = 2;
@@ -93,7 +93,7 @@ class ModsMenuState extends MusicBeatState
 		noModsTxt.screenCenter();
 		visibleWhenNoMods.push(noModsTxt);
 
-		var path:String = SUtil.getPath() + 'modsList.txt';
+		var path:String = SUtil.getPath() + 'ModsList.txt';
 		if(FileSystem.exists(path))
 		{
 			var leMods:Array<String> = CoolUtil.coolTextFile(path);
@@ -112,7 +112,7 @@ class ModsMenuState extends MusicBeatState
 
 		// FIND MOD FOLDERS
 		var boolshit = true;
-		if (FileSystem.exists(SUtil.getPath() + "modsList.txt")){
+		if (FileSystem.exists(SUtil.getPath() + "ModsList.txt")){
 			for (folder in Paths.getModDirectories())
 			{
 				if(!Paths.ignoreModFolders.contains(folder))
@@ -134,7 +134,7 @@ class ModsMenuState extends MusicBeatState
 		//attached buttons
 		var startX:Int = 1120;
 
-		buttonToggle = new FlxButton(startX, 0, "ON", function()
+		buttonToggle = new FlxButton(startX, 0, "On", function()
 		{
 			if(mods[curSelected].restart)
 			{
@@ -181,7 +181,7 @@ class ModsMenuState extends MusicBeatState
 		setAllLabelsOffset(buttonDown, -15, 10);
 
 		startX -= 100;
-		buttonTop = new FlxButton(startX, 0, "TOP", function() {
+		buttonTop = new FlxButton(startX, 0, "Top", function() {
 			var doRestart:Bool = (mods[0].restart || mods[curSelected].restart);
 			for (i in 0...curSelected) //so it shifts to the top instead of replacing the top one
 			{
@@ -204,7 +204,7 @@ class ModsMenuState extends MusicBeatState
 
 
 		startX -= 190;
-		buttonDisableAll = new FlxButton(startX, 0, "DISABLE ALL", function() {
+		buttonDisableAll = new FlxButton(startX, 0, "Disable All", function() {
 			for (i in modsList)
 			{
 				i[1] = false;
@@ -230,7 +230,7 @@ class ModsMenuState extends MusicBeatState
 		visibleWhenHasMods.push(buttonDisableAll);
 
 		startX -= 190;
-		buttonEnableAll = new FlxButton(startX, 0, "ENABLE ALL", function() {
+		buttonEnableAll = new FlxButton(startX, 0, "Enable All", function() {
 			for (i in modsList)
 			{
 				i[1] = true;
@@ -258,10 +258,7 @@ class ModsMenuState extends MusicBeatState
 		// more buttons
 		var startX:Int = 1100;
 
-
-
-
-		/*
+		
 		installButton = new FlxButton(startX, 620, "Install Mod", function()
 		{
 			installMod();
@@ -280,7 +277,7 @@ class ModsMenuState extends MusicBeatState
 			var path = haxe.io.Path.join([Paths.mods(), modsList[curSelected][0]]);
 			if(FileSystem.exists(path) && FileSystem.isDirectory(path))
 			{
-				trace('Trying to delete directory ' + path);
+				trace('Trying To Delete Directory ' + path);
 				try
 				{
 					FileSystem.deleteFile(path); //FUCK YOU HAXE WHY DONT YOU WORK WAAAAAAAAAAAAH
@@ -413,12 +410,12 @@ class ModsMenuState extends MusicBeatState
 	{
 		if (modsList[curSelected][1])
 		{
-			buttonToggle.label.text = 'ON';
+			buttonToggle.label.text = 'On';
 			buttonToggle.color = FlxColor.GREEN;
 		}
 		else
 		{
-			buttonToggle.label.text = 'OFF';
+			buttonToggle.label.text = 'Off';
 			buttonToggle.color = FlxColor.RED;
 		}
 	}
@@ -466,7 +463,7 @@ class ModsMenuState extends MusicBeatState
 			fileStr += values[0] + '|' + (values[1] ? '1' : '0');
 		}
 
-		var path:String = SUtil.getPath() + 'modsList.txt';
+		var path:String = SUtil.getPath() + 'ModsList.txt';
 		File.saveContent(path, fileStr);
 		Paths.pushGlobalMods();
 	}
@@ -574,7 +571,7 @@ class ModsMenuState extends MusicBeatState
 				selector.sprTracker = mod.alphabet;
 				descriptionTxt.text = mod.description;
 				if (mod.restart){//finna make it to where if nothing changed then it won't reset
-					descriptionTxt.text += " (This Mod will restart the game!)";
+					descriptionTxt.text += " (This Mod Will Restart The SB Engine!)";
 				}
 
 				// correct layering
@@ -733,7 +730,7 @@ class ModMetadata
 	{
 		this.folder = folder;
 		this.name = folder;
-		this.description = "No description provided.";
+		this.description = "No Description Provided.";
 		this.color = ModsMenuState.defaultColor;
 		this.restart = false;
 
@@ -763,7 +760,7 @@ class ModMetadata
 				}
 				if(description == 'Description')
 				{
-					this.description = "No description provided.";
+					this.description = "No Description Provided.";
 				}
 				if(colors != null && colors.length > 2)
 				{

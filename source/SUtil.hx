@@ -41,13 +41,13 @@ class SUtil
 				/**
 				 * Basically for now i can't force the app to stop while its requesting a android permission, so this makes the app to stop while its requesting the specific permission
 				 */
-				Lib.application.window.alert('If you accepted the permissions you are all good!' + "\nIf you didn't then expect a crash"
-					+ '\nPress Ok to see what happens',
-					'Permissions?');
+				Lib.application.window.alert('If You Accepted The Permissions You Are All Good!' + "\nIf You Didn't Then Expect A Crash"
+					+ '\nPress Ok To See What Happens',
+					'Welcome');
 			}
 			else
 			{
-				Lib.application.window.alert('Please grant the game storage permissions in app settings' + '\nPress Ok to close the app', 'Permissions?');
+				Lib.application.window.alert('Please Grant the game storage permissions in app settings' + '\nPress OK To Close The App', 'Permissions?');
 				System.exit(1);
 			}
 		}
@@ -60,7 +60,7 @@ class SUtil
 
 			if (!FileSystem.exists(SUtil.getPath() + 'assets') && !FileSystem.exists(SUtil.getPath() + 'mods'))
 			{
-				Lib.application.window.alert("Whoops, seems like you didn't extract the files from the .APK!\nPlease watch the tutorial by pressing OK.",
+				Lib.application.window.alert("Whoops, Seems Like You Didn't Extract The Files From The .APK!\nPlease Watch The Tutorial By Pressing OK.",
 					'Error!');
 				FlxG.openURL('https://youtu.be/zjvkTmdWvfU');
 				System.exit(1);
@@ -68,7 +68,7 @@ class SUtil
 			else if ((FileSystem.exists(SUtil.getPath() + 'assets') && !FileSystem.isDirectory(SUtil.getPath() + 'assets'))
 				&& (FileSystem.exists(SUtil.getPath() + 'mods') && !FileSystem.isDirectory(SUtil.getPath() + 'mods')))
 			{
-				Lib.application.window.alert("Why did you create two files called assets and mods instead of copying the folders from the .APK?, expect a crash.",
+				Lib.application.window.alert("Why Did You Create Two Files Called Assets And Mods Instead Of Copying The Folders From The .APK?, Expect A Crash.",
 					'Error!');
 				System.exit(1);
 			}

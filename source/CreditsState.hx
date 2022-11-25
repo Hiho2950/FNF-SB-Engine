@@ -34,11 +34,15 @@ class CreditsState extends MusicBeatState
 	var intendedColor:Int;
 	var colorTween:FlxTween;
 	var descBox:AttachedSprite;
+	var engineText:FlxText
 
 	var offsetThing:Float = -75;
 
 	override function create()
 	{
+		Paths.clearStoredMemory();
+		Paths.clearUnusedMemory();
+		
 		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
@@ -53,7 +57,7 @@ class CreditsState extends MusicBeatState
 		add(grpOptions);
 
 		#if MODS_ALLOWED
-		var path:String = SUtil.getPath() + 'modsList.txt';
+		var path:String = SUtil.getPath() + 'ModsList.txt';
 		if(FileSystem.exists(path))
 		{
 			var leMods:Array<String> = CoolUtil.coolTextFile(path);
@@ -81,22 +85,27 @@ class CreditsState extends MusicBeatState
 		#end
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
+			['SB Engine Team'],
+			['StefanBETA2008',	'stefan',				'Main Programmer Of SB Engine',	'https://youtube.com/@StefanBETA2008', 	'FFA500'],
+			['Pico Soft',	'fearester',			'The Collaborator Of The SB Engine',											'https://github.com/Fearester', 								'00FF00'],
+			['MatejaMoriXS',				'mateja',			'Best Friend 1',										'https://youtube.com/@MATEJAMORIXS', 	'FF0000'],
+			['MihajloMOXI',	'mihajlo',			'Best Friend 2',											'https://youtube.com/@mihajlomoxi', 								'A020F0'],
+			[''],
 			['Android Support'],
 			['Saw (M.A. Jigsaw)',	'jigsaw',				'Main Programmer of Psych Engine\nWith Android Support',	'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 	'444444'],
 			['Goldie',				'goldie',			'Virtual Pad Artist',										'https://www.youtube.com/channel/UCjTi9Hfl1Eb5Bgk5gksmsbA', 	'444444'],
-			['Join our Discord!',	'discord',			'If you dare...',											'https://discord.gg/42bGcJG26x', 								'5165F6'],
 			[''],
 			['Psych Engine Team'],
-			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
-			['RiverOaken',			'river',			'Main Artist/Animator of Psych Engine',							'https://twitter.com/RiverOaken',		'B42F71'],
-			['shubs',				'shubs',			'Additional Programmer of Psych Engine',						'https://twitter.com/yoshubs',			'5E99DF'],
+			['Shadow Mario',		'shadowmario',		'Main Programmer Of Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
+			['RiverOaken',			'river',			'Main Artist/Animator Of Psych Engine',							'https://twitter.com/RiverOaken',		'B42F71'],
+			['shubs',				'shubs',			'Additional Programmer Of Psych Engine',						'https://twitter.com/yoshubs',			'5E99DF'],
 			[''],
 			['Former Engine Members'],
-			['bb-panzu',			'bb',				'Ex-Programmer of Psych Engine',								'https://twitter.com/bbsub3',			'3E813A'],
+			['bb-panzu',			'bb',				'Ex-Programmer Of Psych Engine',								'https://twitter.com/bbsub3',			'3E813A'],
 			[''],
 			['Engine Contributors'],
-			['iFlicky',				'flicky',			'Composer of Psync and Tea Time\nMade the Dialogue Sounds',		'https://twitter.com/flicky_i',			'9E29CF'],
-			['SqirraRNG',			'sqirra',			'Crash Handler and Base code for\nChart Editor\'s Waveform',	'https://twitter.com/gedehari',			'E1843A'],
+			['iFlicky',				'flicky',			'Composer Of Psync And Tea Time.\nMade The Dialogue Sounds.',		'https://twitter.com/flicky_i',			'9E29CF'],
+			['SqirraRNG',			'sqirra',			'Crash Handler And Base Code For\nChart Editor\'s Waveform.',	'https://twitter.com/gedehari',			'E1843A'],
 			['PolybiusProxy',		'proxy',			'.MP4 Video Loader Library (hxCodec)',							'https://twitter.com/polybiusproxy',	'DCD294'],
 			['KadeDev',				'kade',				'Fixed some cool stuff on Chart Editor\nand other PRs',			'https://twitter.com/kade0912',			'64A250'],
 			['Keoiki',				'keoiki',			'Note Splash Animations',										'https://twitter.com/Keoiki_',			'D2D2D2'],
@@ -104,10 +113,10 @@ class CreditsState extends MusicBeatState
 			['Smokey',				'smokey',			'Sprite Atlas Support',											'https://twitter.com/Smokey_5_',		'483D92'],
 			[''],
 			["Funkin' Crew"],
-			['ninjamuffin99',		'ninjamuffin99',	"Programmer of Friday Night Funkin'",							'https://twitter.com/ninja_muffin99',	'CF2D2D'],
-			['PhantomArcade',		'phantomarcade',	"Animator of Friday Night Funkin'",								'https://twitter.com/PhantomArcade3K',	'FADC45'],
-			['evilsk8r',			'evilsk8r',			"Artist of Friday Night Funkin'",								'https://twitter.com/evilsk8r',			'5ABD4B'],
-			['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",								'https://twitter.com/kawaisprite',		'378FC7']
+			['ninjamuffin99',		'ninjamuffin99',	"Programmer Of Friday Night Funkin'",							'https://twitter.com/ninja_muffin99',	'CF2D2D'],
+			['PhantomArcade',		'phantomarcade',	"Animator Of Friday Night Funkin'",								'https://twitter.com/PhantomArcade3K',	'FADC45'],
+			['evilsk8r',			'evilsk8r',			"Artist Of Friday Night Funkin'",								'https://twitter.com/evilsk8r',			'5ABD4B'],
+			['kawaisprite',			'kawaisprite',		"Composer Of Friday Night Funkin'",								'https://twitter.com/kawaisprite',		'378FC7']
 		];
 		
 		for(i in pisspoop){
@@ -157,11 +166,17 @@ class CreditsState extends MusicBeatState
 		add(descBox);
 
 		descText = new FlxText(50, FlxG.height + offsetThing - 25, 1180, "", 32);
-		descText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER/*, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK*/);
+		descText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		descText.scrollFactor.set();
-		//descText.borderSize = 2.4;
+		descText.borderSize = 2.4;
 		descBox.sprTracker = descText;
 		add(descText);
+
+		engineText = new FlxText(12, FlxG.height + offsetThing - 24, 0, "SB Engine Version: " + MainMenuState.sbEngineVersion, 12);
+		engineText.scrollFactor.set();
+		engineText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		engineText.borderSize = 2.4;
+		add(engineText);
 
 		bg.color = getCurrentBGColor();
 		intendedColor = bg.color;

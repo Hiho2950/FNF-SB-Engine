@@ -83,7 +83,7 @@ class PlayState extends MusicBeatState
 
 	public static var ratingStuff:Array<Dynamic> = [
 		['You Suck!', 0.2], //From 0% to 19%
-		['Shit', 0.4], //From 20% to 39%
+		['Freak', 0.4], //From 20% to 39%
 		['Bad', 0.5], //From 40% to 49%
 		['Bruh', 0.6], //From 50% to 59%
 		['Meh', 0.69], //From 60% to 68%
@@ -258,6 +258,7 @@ class PlayState extends MusicBeatState
 	public var songHits:Int = 0;
 	public var songMisses:Int = 0;
 	public var scoreTxt:FlxText;
+	public var songTxt:FlxText;
 	var timeTxt:FlxText;
 	var scoreTxtTween:FlxTween;
 
@@ -311,7 +312,8 @@ class PlayState extends MusicBeatState
 	override public function create()
 	{
 		Paths.clearStoredMemory();
-
+		Paths.clearUnusedMemory();
+		
 		// for lua
 		instance = this;
 
@@ -1188,7 +1190,19 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
-		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
+		songTxt = new FlxText(12, FlxG.height - 24, 0, "", 8);
+		songTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		songTxt.scrollFactor.set();
+		songTxt.borderSize = 1;
+		if (!ClientPrefs.hideWatermark && !ClientPrefs.hideHud) {
+			songTxt.visible = true;
+		} else {
+			songTxt.visible = false;
+		}
+		add(songTxt);
+		songTxt.text = curSong + " [" + storyDifficultyText + "] " + "| SB Engine Version: " + MainMenuState.sbEngineVersion;
+
+		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "Autoplay", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
 		botplayTxt.borderSize = 1.25;
@@ -1206,6 +1220,7 @@ class PlayState extends MusicBeatState
 		iconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
+		songTxt.cameras = [camHUD];
 		botplayTxt.cameras = [camHUD];
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
@@ -2276,10 +2291,10 @@ class PlayState extends MusicBeatState
 
 	public function updateScore(miss:Bool = false)
 	{
-		scoreTxt.text = 'Score: ' + songScore
-		+ ' | Misses: ' + songMisses
-		+ ' | Rating: ' + ratingName
-		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
+			scoreTxt.text = 'Score: ' + songScore 
+			+ ' | Misses: ' + songMisses 
+			+ ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' 
+			+ ' | ' + ratingName + ' [' + ratingFC + ']';
 
 		if(ClientPrefs.scoreZoom && !miss && !cpuControlled)
 		{

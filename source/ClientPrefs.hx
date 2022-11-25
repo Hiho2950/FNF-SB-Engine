@@ -10,7 +10,7 @@ class ClientPrefs {
 	public static var downScroll:Bool = false;
 	public static var middleScroll:Bool = false;
 	public static var opponentStrums:Bool = true;
-	public static var showFPS:Bool = #if android false #else true #end;
+	public static var showFPS:Bool = #if android true #else true #end;
 	public static var flashing:Bool = true;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
@@ -21,10 +21,7 @@ class ClientPrefs {
 	public static var violence:Bool = true;
 	public static var camZooms:Bool = true;
 	public static var hideHud:Bool = false;
-	public static var vocalVolume:Float = 1;
-	public static var instVolume:Float = 1;
-	public static var mainVolume:Float = 1;
-	public static var winIcon:Bool = false;
+	public static var hideWatermark:Bool = false;
 	public static var noteOffset:Int = 0;
 	public static var arrowHSV:Array<Array<Int>> = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
 	public static var ghostTapping:Bool = true;
@@ -113,10 +110,7 @@ class ClientPrefs {
 		FlxG.save.data.camZooms = camZooms;
 		FlxG.save.data.noteOffset = noteOffset;
 		FlxG.save.data.hideHud = hideHud;
-		FlxG.save.data.vocalVolume = vocalVolume;
-		FlxG.save.data.instVolume = instVolume;
-		FlxG.save.data.mainVolume = mainVolume;
-		FlxG.save.data.winIcon = winIcon;
+		FlxG.save.data.hideWatermark = hideWatermark;
 		FlxG.save.data.arrowHSV = arrowHSV;
 		FlxG.save.data.ghostTapping = ghostTapping;
 		FlxG.save.data.timeBarType = timeBarType;
@@ -142,7 +136,7 @@ class ClientPrefs {
 		FlxG.save.flush();
 
 		var save:FlxSave = new FlxSave();
-		save.bind('controls_v2'); //Placing this in a separate save so that it can be manually deleted without removing your Score and stuff
+		save.bind('controls_v2', 'ninjamuffin99'); //Placing this in a separate save so that it can be manually deleted without removing your Score and stuff
 		save.data.customControls = keyBinds;
 		save.flush();
 		FlxG.log.add("Settings saved!");
@@ -201,23 +195,8 @@ class ClientPrefs {
 		if(FlxG.save.data.hideHud != null) {
 			hideHud = FlxG.save.data.hideHud;
 		}
-		if(FlxG.save.data.vocalVolume != null) {
-			vocalVolume = FlxG.save.data.vocalVolume;
-		}
-		if(FlxG.save.data.instVolume != null) {
-			instVolume = FlxG.save.data.instVolume;
-		}
-		if(FlxG.save.data.mainVolume != null) {
-			mainVolume = FlxG.save.data.mainVolume;
-		}
-		if(FlxG.save.data.winIcon != null) {
-			winIcon = FlxG.save.data.winIcon;
-		}
-		if(FlxG.save.data.instVolume != null) {
-			instVolume = FlxG.save.data.instVolume;
-		}
-		if(FlxG.save.data.vocalVolume != null) {
-			vocalVolume = FlxG.save.data.vocalVolume;
+		if(FlxG.save.data.hideWatermark != null) {
+			hideWatermark = FlxG.save.data.hideWatermark;
 		}
 		if(FlxG.save.data.noteOffset != null) {
 			noteOffset = FlxG.save.data.noteOffset;

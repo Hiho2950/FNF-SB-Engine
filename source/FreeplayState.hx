@@ -52,8 +52,8 @@ class FreeplayState extends MusicBeatState
 
 	override function create()
 	{
-		//Paths.clearStoredMemory();
-		//Paths.clearUnusedMemory();
+		Paths.clearStoredMemory();
+		Paths.clearUnusedMemory();
 		
 		persistentUpdate = true;
 		PlayState.isStoryMode = false;
@@ -194,23 +194,23 @@ class FreeplayState extends MusicBeatState
 
 		#if PRELOAD_ALL
 			#if android
-			var leText:String = "Press X to listen to the Song / Press C to open the Gameplay Changers Menu / Press Y to Reset your Score and Accuracy.";
+			var leText:String = "Press X To Listen To The Song / Press C To Open The Gameplay Changers Menu / Press Y To Reset Your Score And Accuracy.";
 			var size:Int = 16;
 			#else
-			var leText:String = "Press SPACE to listen to the Song / Press CTRL to open the Gameplay Changers Menu / Press RESET to Reset your Score and Accuracy.";
+			var leText:String = "Press SPACE To Listen To The Song / Press CTRL To Open The Gameplay Changers Menu / Press RESET To Reset Your Score And Accuracy.";
 			var size:Int = 16;
 			#end
 		#else
 			#if android
-			var leText:String = "Press C to open the Gameplay Changers Menu / Press Y to Reset your Score and Accuracy.";
+			var leText:String = "Press C To Open The Gameplay Changers Menu / Press Y To Reset Your Score And Accuracy.";
 			var size:Int = 18;
 			#else
-			var leText:String = "Press CTRL to open the Gameplay Changers Menu / Press RESET to Reset your Score and Accuracy.";
+			var leText:String = "Press CTRL To Open The Gameplay Changers Menu / Press RESET To Reset Your Score and Accuracy.";
 			var size:Int = 18;
 			#end
 		#end
 		var text:FlxText = new FlxText(textBG.x, textBG.y + 4, FlxG.width, leText, size);
-		text.setFormat(Paths.font("vcr.ttf"), size, FlxColor.WHITE, RIGHT);
+		text.setFormat(Paths.font("vcr.ttf"), size, FlxColor.WHITE, CENTER);
 		text.scrollFactor.set();
 		add(text);
 
@@ -281,7 +281,7 @@ class FreeplayState extends MusicBeatState
 			ratingSplit[1] += '0';
 		}
 
-		scoreText.text = 'PERSONAL BEST: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';
+		scoreText.text = 'Best Personal: ' + lerpScore + ' [' + ratingSplit.join('.') + '%]';
 		positionHighscore();
 
 		var upP = controls.UI_UP_P;
@@ -369,11 +369,11 @@ class FreeplayState extends MusicBeatState
 					vocals = new FlxSound();
 
 				FlxG.sound.list.add(vocals);
-				FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 0.7);
+				FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 1.0);
 				vocals.play();
 				vocals.persist = true;
 				vocals.looped = true;
-				vocals.volume = 0.7;
+				vocals.volume = 1.0;
 				instPlaying = curSelected;
 				#end
 			}
@@ -451,7 +451,7 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		PlayState.storyDifficulty = curDifficulty;
-		diffText.text = '< ' + CoolUtil.difficultyString() + ' >';
+		diffText.text = '<[ ' + CoolUtil.difficultyString() + ' ]>';
 		positionHighscore();
 	}
 
@@ -479,7 +479,7 @@ class FreeplayState extends MusicBeatState
 			});
 		}
 
-		// selector.y = (70 * curSelected) + 30;
+		selector.y = (70 * curSelected) + 30;
 
 		#if !switch
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
@@ -501,12 +501,12 @@ class FreeplayState extends MusicBeatState
 			bullShit++;
 
 			item.alpha = 0.6;
-			// item.setGraphicSize(Std.int(item.width * 0.8));
+			item.setGraphicSize(Std.int(item.width * 0.8));
 
 			if (item.targetY == 0)
 			{
 				item.alpha = 1;
-				// item.setGraphicSize(Std.int(item.width));
+				item.setGraphicSize(Std.int(item.width));
 			}
 		}
 		

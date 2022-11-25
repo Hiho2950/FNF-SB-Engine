@@ -18,6 +18,9 @@ class FlashingState extends MusicBeatState
 	var warnText:FlxText;
 	override function create()
 	{
+		Paths.clearStoredMemory();
+		Paths.clearUnusedMemory();
+		
 		super.create();
 
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
@@ -25,21 +28,21 @@ class FlashingState extends MusicBeatState
 
 		#if android
 		warnText = new FlxText(0, 0, FlxG.width,
-			"Hey, watch out!\n
-			Be careful when you touch the phone fast!\n
-			You can break your phone screen if you do that,also\n
-			This Mod contains some flashing lights!\n
-			Press A to disable them now or go to Options Menu.\n
-			Press B to ignore this message.\n
-			You've been warned!",
+			"Hey, Watch Out!\n
+			Be Careful When You Touch The Phone Fast!\n
+			You Can Break Your Phone Screen If you Do That.\n
+			This Mod Contains Some Flashing Lights!\n
+			Press A To Disable Them Now Or Go To Options Menu.\n
+			Press B To Ignore This Message.\n
+			You've Been Warned!",
 			32);
 		#else
 		warnText = new FlxText(0, 0, FlxG.width,
 			"Hey, watch out!\n
-			This Mod contains some flashing lights!\n
-			Press ENTER to disable them now or go to Options Menu.\n
-			Press ESCAPE to ignore this message.\n
-			You've been warned!",
+			This Mod Contains Some Flashing Lights!\n
+			Press ENTER To Disable Them Now Or Go To Options Menu.\n
+			Press ESCAPE To Ignore This Message.\n
+			You've Been Warned!",
 			32);
 		#end
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);

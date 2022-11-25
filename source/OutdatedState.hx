@@ -18,6 +18,9 @@ class OutdatedState extends MusicBeatState
 	var warnText:FlxText;
 	override function create()
 	{
+		Paths.clearStoredMemory();
+		Paths.clearUnusedMemory();
+		
 		super.create();
 
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
@@ -25,21 +28,21 @@ class OutdatedState extends MusicBeatState
 
 		#if android
 		warnText = new FlxText(0, 0, FlxG.width,
-			"Sup bro, looks like you're running an   \n
-			outdated version of Psych Engine With Android Support (" + MainMenuState.psychEngineVersion + "),\n
-			please update to " + TitleState.updateVersion + "!\n
-			Press B to proceed anyway.\n
+			"Hello Player, Looks Like You're Running An   \n
+			Outdated Version Of SB Engine With Android Support (" + MainMenuState.sbEngineVersion + ").\n
+			Please Update To " + TitleState.updateVersion + "!\n
+			Press B To Proceed Anyway.\n
 			\n
-			Thank you for using the Port of the Engine!",
+			Thank You For Using The Port Of The SB Engine!",
 			32);
 		#else
 		warnText = new FlxText(0, 0, FlxG.width,
-			"Sup bro, looks like you're running an   \n
-			outdated version of Psych Engine (" + MainMenuState.psychEngineVersion + "),\n
-			please update to " + TitleState.updateVersion + "!\n
-			Press ESCAPE to proceed anyway.\n
+			"Hello Player, Looks Like You're Running An   \n
+			Outdated Version Of SB Engine (" + MainMenuState.sbEngineVersion + ").\n
+			Please Update To " + TitleState.updateVersion + "!\n
+			Press ESCAPE To Proceed Anyway.\n
 			\n
-			Thank you for using the Engine!",
+			Thank You For Using The Engine!",
 			32);
 		#end
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
@@ -56,7 +59,7 @@ class OutdatedState extends MusicBeatState
 		if(!leftState) {
 			if (controls.ACCEPT) {
 				leftState = true;
-				CoolUtil.browserLoad("https://github.com/jigsaw-4277821/FNF-PsychEngine-Android-Support/actions");
+				CoolUtil.browserLoad("https://github.com/StefanBETA2008/FNF-SB-Engine");
 			}
 			else if(controls.BACK) {
 				leftState = true;
