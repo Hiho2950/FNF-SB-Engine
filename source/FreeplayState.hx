@@ -479,7 +479,7 @@ class FreeplayState extends MusicBeatState
 			});
 		}
 
-		selector.y = (70 * curSelected) + 30;
+		//selector.y = (70 * curSelected) + 30;
 
 		#if !switch
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
