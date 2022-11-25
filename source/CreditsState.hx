@@ -172,7 +172,7 @@ class CreditsState extends MusicBeatState
 		descBox.sprTracker = descText;
 		add(descText);
 
-		engineText = new FlxText(12, FlxG.height + offsetThing - 10, 0, "SB Engine Version: " + MainMenuState.sbEngineVersion, 12);
+		engineText = new FlxText(12, FlxG.height + offsetThing - 1, 1180, "SB Engine Version: " + MainMenuState.sbEngineVersion, 12);
 		engineText.scrollFactor.set();
 		engineText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		engineText.borderSize = 2.4;
