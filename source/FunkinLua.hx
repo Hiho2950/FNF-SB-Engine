@@ -128,9 +128,6 @@ class FunkinLua {
 		set('songLength', FlxG.sound.music.length);
 		set('songName', PlayState.SONG.song);
 		set('songPath', Paths.formatToSongPath(PlayState.SONG.song));
-                set('winIcons',ClientPrefs.winIcon);
-                set('instVolume',ClientPrefs.instVolume);
-                set('vocalVolume',ClientPrefs.vocalVolume);
 		set('startedCountdown', false);
 
 		set('isStoryMode', PlayState.isStoryMode);
