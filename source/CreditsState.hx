@@ -34,7 +34,7 @@ class CreditsState extends MusicBeatState
 	var intendedColor:Int;
 	var colorTween:FlxTween;
 	var descBox:AttachedSprite;
-	var engineText:FlxText
+	var engineText:FlxText;
 
 	var offsetThing:Float = -75;
 
