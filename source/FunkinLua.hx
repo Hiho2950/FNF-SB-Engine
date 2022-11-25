@@ -589,12 +589,12 @@ class FunkinLua {
 					if(luaInstance.scriptName == cervix)
 					{
 						Lua.getglobal(luaInstance.lua, global);
-						if(Lua.isnumber(luaInstance.lua,-1)){
-							Lua.pushnumber(lua, Lua.tonumber(luaInstance.lua, -1));
-						}else if(Lua.isstring(luaInstance.lua,-1)){
-							Lua.pushstring(lua, Lua.tostring(luaInstance.lua, -1));
-						}else if(Lua.isboolean(luaInstance.lua,-1)){
-							Lua.pushboolean(lua, Lua.toboolean(luaInstance.lua, -1));
+						if(Lua.isnumber(luaInstance.lua,false)){
+							Lua.pushnumber(lua, Lua.tonumber(luaInstance.lua, false));
+						}else if(Lua.isstring(luaInstance.lua,false)){
+							Lua.pushstring(lua, Lua.tostring(luaInstance.lua, false));
+						}else if(Lua.isboolean(luaInstance.lua,false)){
+							Lua.pushboolean(lua, Lua.toboolean(luaInstance.lua, false));
 						}else{
 							Lua.pushnil(lua);
 						}
