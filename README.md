@@ -1,4 +1,4 @@
-[![SrefanBETA Engine Build](https://github.com/StefanBETA2008/FNF-SB-Engine/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/StefanBETA2008/FNF-SB-Engine/actions/workflows/main.yml)
+[![StefanBETA Engine Build](https://github.com/StefanBETA2008/FNF-SB-Engine/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/StefanBETA2008/FNF-SB-Engine/actions/workflows/main.yml)
 
 # Friday Night Funkin' - Psych Engine With Android Support
 Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
