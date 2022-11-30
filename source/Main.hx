@@ -119,20 +119,20 @@ class Main extends Sprite
 		dateNow = dateNow.replace(" ", "_");
 		dateNow = dateNow.replace(":", "'");
 
-		path = SUtil.getPath() + "Crash/" + "SB Engine [" + dateNow + "].txt";
+		path = SUtil.getPath() + "crash/" + "SB Engine [" + dateNow + "].log";
 
 		for (stackItem in callStack)
 		{
 			switch (stackItem)
 			{
 				case FilePos(s, file, line, column):
-					errMsg += file + " (line " + line + ")\n";
+					errMsg += file + " [Line " + line + "]\n";
 				default:
 					Sys.println(stackItem);
 			}
 		}
 
-		errMsg += "\nUncaught Error: " + e.error + "\nPlease report this error to the GitHub page: https://github.com/Fearester/Alt-Engine\n\n> Crash Handler written by: Sqirra-Rng";
+		errMsg += "\nUncaught Error: " + e.error + "\nPlease Report This Rrror To The GitHub Page: https://github.com/StefanBETA2008/FNN-SB-Enginr\n\n> Crash Handler Written By: Sqirra-Rng";
 
 		if (!FileSystem.exists(SUtil.getPath() + "crash/"))
 			FileSystem.createDirectory(SUtil.getPath() + "crash/");
@@ -140,9 +140,9 @@ class Main extends Sprite
 		File.saveContent(path, errMsg + "\n");
 
 		Sys.println(errMsg);
-		Sys.println("Crash dump saved in " + Path.normalize(path));
+		Sys.println("Crash Dump Saved In: " + Path.normalize(path));
 
-		Application.current.window.alert(errMsg, "Oops. Error!");
+		Application.current.window.alert(errMsg, "SB Engine Code Line Error!");
 		#if desktop
 		DiscordClient.shutdown();
 		#end
