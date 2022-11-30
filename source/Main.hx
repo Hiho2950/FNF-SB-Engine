@@ -132,7 +132,7 @@ class Main extends Sprite
 			}
 		}
 
-		errMsg += "\nUncaught Error: " + e.error + "\nPlease Report This Rrror To The GitHub Page: https://github.com/StefanBETA2008/FNN-SB-Enginr\n\n> Crash Handler Written By: Sqirra-Rng";
+		errMsg += "\nUncaught Error: " + e.error + "\nPlease Report This Rrror To The GitHub Page: https://github.com/StefanBETA2008/FNF-SB-Engine\n\n> Crash Handler Written By: Sqirra-Rng";
 
 		if (!FileSystem.exists(SUtil.getPath() + "crash/"))
 			FileSystem.createDirectory(SUtil.getPath() + "crash/");
