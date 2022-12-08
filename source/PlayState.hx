@@ -261,6 +261,8 @@ class PlayState extends MusicBeatState
 	public var songTxt:FlxText;
 	var timeTxt:FlxText;
 	var scoreTxtTween:FlxTween;
+	var judgementCounter:FlxText;
+
 
 	public static var campaignScore:Int = 0;
 	public static var campaignMisses:Int = 0;
@@ -1185,16 +1187,16 @@ class PlayState extends MusicBeatState
 		reloadHealthBarColors();
 
 		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 20);
-		scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		scoreTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
 		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
 		songTxt = new FlxText(12, FlxG.height - 24, 0, "", 8);
-		songTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		songTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		songTxt.scrollFactor.set();
-		songTxt.borderSize = 1;
+		songTxt.borderSize = 1.25;
 		if (!ClientPrefs.hideWatermark && !ClientPrefs.hideHud) {
 			songTxt.visible = true;
 		} else {
@@ -1203,7 +1205,20 @@ class PlayState extends MusicBeatState
 		add(songTxt);
 		songTxt.text = curSong + " | SB Engine Version: " + MainMenuState.sbEngineVersion;
 
-		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "AUTOPLAY", 32);
+		judgementCounter = new FlxText(20, 0, 0, "", 20);
+		judgementCounter.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		judgementCounter.borderSize = 2;
+		judgementCounter.borderQuality = 2;
+		judgementCounter.scrollFactor.set();
+		judgementCounter.cameras = [camHUD];
+		judgementCounter.screenCenter(Y);
+		judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nFreaks: ${shits}\nMisses: ${songMisses}';
+		if (ClientPrefs.judgementCounter)
+			{
+				add(judgementCounter);
+			}
+
+		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
 		botplayTxt.borderSize = 1.25;
@@ -1222,6 +1237,7 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		songTxt.cameras = [camHUD];
+		judgementCounter.cameras = [camHUD];
 		botplayTxt.cameras = [camHUD];
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
@@ -3013,8 +3029,8 @@ class PlayState extends MusicBeatState
 		setOnLuas('curDecBeat', curDecBeat);
 
 		if(botplayTxt.visible) {
-			botplaySine += 180 * elapsed;
-			botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
+			botplaySine += 1 * elapsed;
+			botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 1);
 		}
 
 		if (controls.PAUSE #if android || FlxG.android.justReleased.BACK #end && startedCountdown && canPause)
