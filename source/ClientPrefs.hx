@@ -184,8 +184,8 @@ class ClientPrefs {
 				FlxG.drawFramerate = framerate;
 				FlxG.updateFramerate = framerate;
 			}
-			if(FlxG.save.data.judgementCounter != null) {
-			judgementCounter = FlxG.save.data.judgementCounter;
+		if(FlxG.save.data.judgementCounter != null) {
+		        judgementCounter = FlxG.save.data.judgementCounter;
 		}
 		/*if(FlxG.save.data.cursing != null) {
 			cursing = FlxG.save.data.cursing;
