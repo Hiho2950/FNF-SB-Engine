@@ -11,7 +11,7 @@ class ClientPrefs {
 	public static var middleScroll:Bool = false;
 	public static var opponentStrums:Bool = true;
 	public static var showFPS:Bool = #if android true #else true #end;
-	public static var judgementCounter:Bool = true;
+	public static var judgementCounter:Bool = false;
 	public static var flashing:Bool = true;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
@@ -184,9 +184,6 @@ class ClientPrefs {
 				FlxG.drawFramerate = framerate;
 				FlxG.updateFramerate = framerate;
 			}
-		if(FlxG.save.data.judgementCounter != null) {
-		        judgementCounter = FlxG.save.data.judgementCounter;
-		}
 		/*if(FlxG.save.data.cursing != null) {
 			cursing = FlxG.save.data.cursing;
 		}
@@ -201,6 +198,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.hideWatermark != null) {
 			hideWatermark = FlxG.save.data.hideWatermark;
+		}
+		if(FlxG.save.data.judgementCounter != null) {
+			judgementCounter = FlxG.save.data.judgementCounter;
 		}
 		if(FlxG.save.data.noteOffset != null) {
 			noteOffset = FlxG.save.data.noteOffset;
