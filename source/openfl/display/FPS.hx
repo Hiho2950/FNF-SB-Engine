@@ -89,7 +89,6 @@ class FPS extends TextField
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
 			text += "\nMemory: " + memoryMegas + " Megabytes";
 			text += "\nSB Engine Version: " + MainMenuState.sbEngineVersion;
-			text += "\nFNF Version: " + Application.meta.get('version');
 			#end
 
 			textColor = 0xFFFFFFFF;
