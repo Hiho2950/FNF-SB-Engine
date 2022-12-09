@@ -46,10 +46,10 @@ class FPS extends TextField
 		currentFPS = 0;
 		selectable = false;
 		mouseEnabled = false;
-		defaultTextFormat = new TextFormat("_sans", 20, color);
+		defaultTextFormat = new TextFormat("_sans", 16, color);
 		autoSize = LEFT;
 		multiline = true;
-		text = "FPS: ";
+		text = "Frame Per Second: ";
 
 		cacheCount = 0;
 		currentTime = 0;
@@ -88,7 +88,9 @@ class FPS extends TextField
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
 			text += "\nMemory: " + memoryMegas + " Megabytes";
+			text += "\nMemory Peak: " + totalMemory + " Megabytes"
 			text += "\nSB Engine Version: " + MainMenuState.sbEngineVersion;
+			text += "\nFNF Version: " + Application.current.meta.get('version');
 			#end
 
 			textColor = 0xFFFFFFFF;
