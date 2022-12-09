@@ -88,7 +88,7 @@ class FPS extends TextField
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
 			text += "\nMemory: " + memoryMegas + " Megabytes";
-			text += "\nMemory Peak: " + totalMemory + " Megabytes"
+			text += "\nMemory Peak: " + totalMemory + " Megabytes";
 			text += "\nSB Engine Version: " + MainMenuState.sbEngineVersion;
 			text += "\nFNF Version: " + Application.current.meta.get('version');
 			#end
