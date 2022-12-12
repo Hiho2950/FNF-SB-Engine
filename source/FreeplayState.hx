@@ -14,6 +14,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
+import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import lime.utils.Assets;
 import flixel.system.FlxSound;
@@ -56,8 +57,10 @@ class FreeplayState extends MusicBeatState
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 		
-		CoolUtil.cameraZoom(camera, 1, .5, FlxEase.sineOut, ONESHOT);
-
+		FlxTween.tween(FlxG.camera, {zoom: 1}, 5, {
+								ease: FlxEase.sineOut
+							});
+		
 		persistentUpdate = true;
 		PlayState.isStoryMode = false;
 		WeekData.reloadWeekFiles(false);
@@ -346,7 +349,9 @@ class FreeplayState extends MusicBeatState
 			}
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			MusicBeatState.switchState(new MainMenuState());
-			CoolUtil.cameraZoom(camera, 2, .5, FlxEase.backOut, ONESHOT);
+			FlxTween.tween(FlxG.camera, {zoom: 2}, 5, {
+								ease: FlxEase.quadOut,
+			});
 		}
 
 		if(ctrl)
