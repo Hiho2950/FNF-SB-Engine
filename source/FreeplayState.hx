@@ -56,7 +56,6 @@ class FreeplayState extends MusicBeatState
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 		
-		camera.zoom = 2.2;
 		CoolUtil.cameraZoom(camera, 1, .5, FlxEase.sineOut, ONESHOT);
 
 		persistentUpdate = true;
