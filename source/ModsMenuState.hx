@@ -14,6 +14,7 @@ import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
 import lime.utils.Assets;
 import flixel.system.FlxSound;
 import openfl.utils.Assets as OpenFlAssets;
@@ -73,6 +74,9 @@ class ModsMenuState extends MusicBeatState
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 		WeekData.setDirectoryFromWeek();
+
+		camera.zoom = 2.2;
+		CoolUtil.cameraZoom(camera, 1, .5, FlxEase.sineOut, ONESHOT);
 
 		#if desktop
 		// Updating Discord Rich Presence
@@ -484,6 +488,7 @@ class ModsMenuState extends MusicBeatState
 				colorTween.cancel();
 			}
 			FlxG.sound.play(Paths.sound('cancelMenu'));
+			CoolUtil.cameraZoom(camera, 2, .5, FlxEase.backOut, ONESHOT);
 			#if !android
 			FlxG.mouse.visible = false;
 			#end

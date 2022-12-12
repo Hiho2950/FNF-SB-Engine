@@ -7,6 +7,7 @@ import editors.ChartingState;
 import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.tweens.FlxEase;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.group.FlxGroup.FlxTypedGroup;
@@ -55,6 +56,9 @@ class FreeplayState extends MusicBeatState
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 		
+		camera.zoom = 2.2;
+		CoolUtil.cameraZoom(camera, 1, .5, FlxEase.sineOut, ONESHOT);
+
 		persistentUpdate = true;
 		PlayState.isStoryMode = false;
 		WeekData.reloadWeekFiles(false);
@@ -343,6 +347,7 @@ class FreeplayState extends MusicBeatState
 			}
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			MusicBeatState.switchState(new MainMenuState());
+			CoolUtil.cameraZoom(camera, 2, .5, FlxEase.backOut, ONESHOT);
 		}
 
 		if(ctrl)

@@ -62,6 +62,8 @@ class MainMenuState extends MusicBeatState
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
+		CoolUtil.cameraZoom(camera, 1, .5, FlxEase.sineOut, ONESHOT);
+
 		debugKeys = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 
 		camGame = new FlxCamera();
@@ -213,6 +215,7 @@ class MainMenuState extends MusicBeatState
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new TitleState());
+				CoolUtil.cameraZoom(camera, 3, 3, FlxEase.backOut, ONESHOT);
 			}
 
 			if (controls.ACCEPT)
@@ -250,18 +253,24 @@ class MainMenuState extends MusicBeatState
 								{
 									case 'story_mode':
 										MusicBeatState.switchState(new StoryMenuState());
+										CoolUtil.cameraZoom(camera, 2, 1, FlxEase.backOut, ONESHOT);
 									case 'freeplay':
 										MusicBeatState.switchState(new FreeplayState());
+										CoolUtil.cameraZoom(camera, 2, 1, FlxEase.backOut, ONESHOT);
 									#if MODS_ALLOWED
 									case 'mods':
 										MusicBeatState.switchState(new ModsMenuState());
+										CoolUtil.cameraZoom(camera, 2, 1, FlxEase.backOut, ONESHOT);
 									#end
 									case 'awards':
 										MusicBeatState.switchState(new AchievementsMenuState());
+										CoolUtil.cameraZoom(camera, 2, 1, FlxEase.backOut, ONESHOT);
 									case 'credits':
 										MusicBeatState.switchState(new CreditsState());
+										CoolUtil.cameraZoom(camera, 2, 1, FlxEase.backOut, ONESHOT);
 									case 'options':
 										LoadingState.loadAndSwitchState(new options.OptionsState());
+										CoolUtil.cameraZoom(camera, 2, 1, FlxEase.backOut, ONESHOT);
 								}
 							});
 						}
