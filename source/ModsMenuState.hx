@@ -73,6 +73,10 @@ class ModsMenuState extends MusicBeatState
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 		WeekData.setDirectoryFromWeek();
+		
+		FlxTween.tween(FlxG.camera, {zoom: 1}, 4, {
+							ease: FlxEase.sineOut
+		});
 
 		#if desktop
 		// Updating Discord Rich Presence
@@ -503,6 +507,9 @@ class ModsMenuState extends MusicBeatState
 			}
 			else
 			{
+			FlxTween.tween(FlxG.camera, {zoom: 2}, 4, {
+							ease: FlxEase.sineOut
+		});
 				MusicBeatState.switchState(new MainMenuState());
 			}
 		}
