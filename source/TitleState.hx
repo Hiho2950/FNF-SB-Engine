@@ -92,6 +92,10 @@ class TitleState extends MusicBeatState
 		FlxG.android.preventDefaultKeys = [BACK];
 		#end
 
+        FlxTween.tween(FlxG.camera, {zoom: 1}, 4, {
+							ease: FlxEase.sineOut
+						});
+						
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
@@ -455,6 +459,9 @@ class TitleState extends MusicBeatState
 			if (touch.justPressed)
 			{
 				pressedEnter = true;
+				FlxTween.tween(FlxG.camera, {zoom: 2}, 4, {
+							ease: FlxEase.sineOut
+						});
 			}
 		}
 		#end
