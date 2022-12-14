@@ -70,6 +70,11 @@ class OptionsState extends MusicBeatState
 	var selectorRight:Alphabet;
 
 	override function create() {
+	    
+	    FlxTween.tween(FlxG.camera, {zoom: 1}, 5, {
+								ease: FlxEase.sineOut
+							});
+							
 		#if desktop
 		DiscordClient.changePresence("Options Menu", null);
 		#end
@@ -134,6 +139,9 @@ class OptionsState extends MusicBeatState
 
 		if (controls.BACK) {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
+			FlxTween.tween(FlxG.camera, {zoom: 2}, 5, {
+								ease: FlxEase.sineOut
+							});
 			MusicBeatState.switchState(new MainMenuState());
 		}
 
