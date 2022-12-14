@@ -213,10 +213,16 @@ class MainMenuState extends MusicBeatState
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new TitleState());
+				FlxTween.tween(FlxG.camera, {zoom: 2}, 5, {
+								ease: FlxEase.backIn
+							});
 			}
 
 			if (controls.ACCEPT)
 			{
+			    FlxTween.tween(FlxG.camera, {zoom: 2}, 5, {
+								ease: FlxEase.backIn
+							});
 				if (optionShit[curSelected] == 'donate')
 				{
 					CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
@@ -232,13 +238,14 @@ class MainMenuState extends MusicBeatState
 					{
 						if (curSelected != spr.ID)
 						{
-							FlxTween.tween(spr, {alpha: 0}, 0.4, {
-								ease: FlxEase.quadOut,
+							FlxTween.tween(spr, {x: -340}, 0.3, {
+								ease: FlxEase.backIn,
 								onComplete: function(twn:FlxTween)
 								{
 									spr.kill();
 								}
 							});
+							
 						}
 						else
 						{
