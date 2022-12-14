@@ -52,8 +52,8 @@ class StoryMenuState extends MusicBeatState
 
 	override function create()
 	{
-	    FlxTween.tween(FlxG.camera, {zoom: 2}, 5, {
-								ease: FlxEase.quadOut
+	    FlxTween.tween(FlxG.camera, {zoom: 1}, 0.6, {
+								ease: FlxEase.sineOut
 			});
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
@@ -273,8 +273,8 @@ class StoryMenuState extends MusicBeatState
 			}
 			else if (controls.ACCEPT)
 			{
-			    FlxTween.tween(FlxG.camera, {zoom: 2}, 5, {
-								ease: FlxEase.quadOut
+			    FlxTween.tween(FlxG.camera, {zoom: 2}, 0.6, {
+								ease: FlxEase.sineOut
 			});
 				selectWeek();
 			}
@@ -284,8 +284,8 @@ class StoryMenuState extends MusicBeatState
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			movedBack = true;
-			FlxTween.tween(FlxG.camera, {zoom: 2}, 5, {
-								ease: FlxEase.quadOut,
+			FlxTween.tween(FlxG.camera, {zoom: 2}, 0.6, {
+								ease: FlxEase.sineOut
 			});
 			MusicBeatState.switchState(new MainMenuState());
 		}
