@@ -50,6 +50,9 @@ class MainMenuState extends MusicBeatState
 
 	override function create()
 	{
+                FlxTween.tween(FlxG.camera, {zoom: 1}, 0.6, {
+								ease: FlxEase.backIn
+							});
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 		
