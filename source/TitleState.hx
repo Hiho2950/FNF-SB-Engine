@@ -91,11 +91,7 @@ class TitleState extends MusicBeatState
 		#if android
 		FlxG.android.preventDefaultKeys = [BACK];
 		#end
-
-        FlxTween.tween(FlxG.camera, {zoom: 1}, 4, {
-							ease: FlxEase.sineOut
-						});
-						
+			
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
