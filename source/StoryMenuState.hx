@@ -411,7 +411,6 @@ class StoryMenuState extends MusicBeatState
 			item.targetY = bullShit - curWeek;
 			if (item.targetY == Std.int(0) && unlocked)
 				item.alpha = 1;
-				item.x += 200;
 			else
 				item.alpha = 0.6;
 			bullShit++;
