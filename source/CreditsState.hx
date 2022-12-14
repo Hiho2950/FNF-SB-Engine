@@ -47,6 +47,10 @@ class CreditsState extends MusicBeatState
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
+        FlxTween.tween(FlxG.camera, {zoom: 1}, 5, {
+		ease: FlxEase.sineOut
+		});
+
 		persistentUpdate = true;
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		add(bg);
@@ -237,6 +241,9 @@ class CreditsState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new MainMenuState());
 				quitting = true;
+				FlxTween.tween(FlxG.camera, {zoom: 2}, 5, {
+								ease: FlxEase.quadOut,
+			});
 			}
 		}
 		
