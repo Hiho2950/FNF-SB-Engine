@@ -51,6 +51,9 @@ class StoryMenuState extends MusicBeatState
 
 	override function create()
 	{
+	    FlxTween.tween(FlxG.camera, {zoom: 2}, 5, {
+								ease: FlxEase.quadOut
+			});
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
@@ -107,7 +110,7 @@ class StoryMenuState extends MusicBeatState
 				weekThing.targetY = num;
 				grpWeekText.add(weekThing);
 
-				weekThing.screenCenter(X);
+				//weekThing.screenCenter(X);
 				weekThing.antialiasing = ClientPrefs.globalAntialiasing;
 				// weekThing.updateHitbox();
 
@@ -269,6 +272,9 @@ class StoryMenuState extends MusicBeatState
 			}
 			else if (controls.ACCEPT)
 			{
+			    FlxTween.tween(FlxG.camera, {zoom: 2}, 5, {
+								ease: FlxEase.quadOut
+			});
 				selectWeek();
 			}
 		}
@@ -277,6 +283,9 @@ class StoryMenuState extends MusicBeatState
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			movedBack = true;
+			FlxTween.tween(FlxG.camera, {zoom: 2}, 5, {
+								ease: FlxEase.quadOut,
+			});
 			MusicBeatState.switchState(new MainMenuState());
 		}
 
@@ -402,6 +411,7 @@ class StoryMenuState extends MusicBeatState
 			item.targetY = bullShit - curWeek;
 			if (item.targetY == Std.int(0) && unlocked)
 				item.alpha = 1;
+				item.x += 200;
 			else
 				item.alpha = 0.6;
 			bullShit++;
