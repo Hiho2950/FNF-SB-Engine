@@ -80,15 +80,6 @@ class MainMenuState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
-		bg.scrollFactor.x = 0;
-		bg.scrollFactor.y = 0.16;
-		bg.setGraphicSize(Std.int(bg.width * 1.1));
-		bg.updateHitbox();
-		bg.screenCenter();
-		bg.antialiasing = true;
-		bg.angle = 179;
-		add(bg);
-
 		gradientBar = FlxGradient.createGradientFlxSprite(Math.round(FlxG.width), 512, [0xFFFFA500, 0xFF800080, 0xFF008000], 1, 90, true);
 		gradientBar.y = FlxG.height - gradientBar.height;
 		add(gradientBar);
@@ -154,12 +145,6 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
-		FlxG.camera.zoom = 3;
-		side.alpha = 0;
-		FlxTween.tween(FlxG.camera, {zoom: 1}, 1.1, {ease: FlxEase.expoInOut});
-		FlxTween.tween(bg, {angle: 0}, 1, {ease: FlxEase.quartInOut});
-		FlxTween.tween(side, {alpha: 1}, 0.9, {ease: FlxEase.quartInOut});
- 
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "SB Engine Version: " + sbEngineVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
