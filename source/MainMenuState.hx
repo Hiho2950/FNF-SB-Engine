@@ -158,7 +158,7 @@ class MainMenuState extends MusicBeatState
 		side.alpha = 0;
 		FlxTween.tween(FlxG.camera, {zoom: 1}, 1.1, {ease: FlxEase.expoInOut});
 		FlxTween.tween(bg, {angle: 0}, 1, {ease: FlxEase.quartInOut});
-		FlxTween.tween(side, {alpha: 1}, 0.9, {ease: FlxEase.quartInOut});"
+		FlxTween.tween(side, {alpha: 1}, 0.9, {ease: FlxEase.quartInOut});
  
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "SB Engine Version: " + sbEngineVersion, 12);
 		versionShit.scrollFactor.set();
