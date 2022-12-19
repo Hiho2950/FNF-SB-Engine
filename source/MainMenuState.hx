@@ -48,7 +48,6 @@ class MainMenuState extends MusicBeatState
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
 	var checker = new FlxBackdrop(Paths.image('Main_Checker'));
-	var gradientBar:FlxSprite = new FlxSprite(0, 0).makeGraphic(FlxG.width, 300, 0xFFFFA500);
 	var debugKeys:Array<FlxKey>;
 
 	override function create()
@@ -79,11 +78,6 @@ class MainMenuState extends MusicBeatState
 		transOut = FlxTransitionableState.defaultTransOut;
 
 		persistentUpdate = persistentDraw = true;
-
-		gradientBar = FlxGradient.createGradientFlxSprite(Math.round(FlxG.width), 512, [0xFFFFA500, 0xFF800080, 0xFF008000], 1, 90, true);
-		gradientBar.y = FlxG.height - gradientBar.height;
-		add(gradientBar);
-		gradientBar.scrollFactor.set(0, 0);
 
 		add(checker);
 		checker.scrollFactor.set(0, 0.07);
