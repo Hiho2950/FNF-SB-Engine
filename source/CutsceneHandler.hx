@@ -29,6 +29,9 @@ class CutsceneHandler extends FlxBasic
 	{
 		super();
 
+                Paths.clearStoredMemory();
+		Paths.clearUnusedMemory();
+
 		timer(0, function()
 		{
 			if(music != null)
