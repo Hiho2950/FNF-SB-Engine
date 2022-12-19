@@ -8,7 +8,6 @@ import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxCamera;
 import flixel.addons.transition.FlxTransitionableState;
-import flixel.addons.display.FlxBackdrop;
 import flixel.effects.FlxFlicker;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup.FlxTypedGroup;
@@ -47,7 +46,6 @@ class MainMenuState extends MusicBeatState
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
-	var checker = new FlxBackdrop(Paths.image('Main_Checker'));
 	var debugKeys:Array<FlxKey>;
 
 	override function create()
@@ -78,9 +76,6 @@ class MainMenuState extends MusicBeatState
 		transOut = FlxTransitionableState.defaultTransOut;
 
 		persistentUpdate = persistentDraw = true;
-
-		add(checker);
-		checker.scrollFactor.set(0, 0.07);
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
 		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
