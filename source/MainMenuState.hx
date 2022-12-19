@@ -47,7 +47,7 @@ class MainMenuState extends MusicBeatState
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
-	var checker = new FlxBackdrop(Paths.image('Main_Checker'), 0.2, 0.2, true, true);
+	var checker = new FlxBackdrop(Paths.image('Main_Checker'), XY, 0.2, 0.2);
 	var gradientBar:FlxSprite = new FlxSprite(0, 0).makeGraphic(FlxG.width, 300, 0xFFFFA500);
 	var debugKeys:Array<FlxKey>;
 
