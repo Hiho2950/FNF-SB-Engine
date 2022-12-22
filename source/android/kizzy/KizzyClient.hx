@@ -53,10 +53,10 @@ class KizzyClient
 	public function setLargeImage(link:String):KizzyClient
 	{
 		if (link.startsWith('https://media.discordapp.net/'))
-			link = link.replace('https://media.discordapp.net/', '');
+			link = link.replace('https://media.discordapp.net/attachments/1046043892660838453/1055592922906636398/iconOG.png', '');
 
 		if (!link.startsWith('attachments/'))
-			link = link + 'attachments/';
+			link = link + 'attachments/1046043892660838453/1055592922906636398/iconOG.png';
 
 		JNI.callMember(JNI.createMemberMethod('org/haxe/extension/KizzyClient', 'setLargeImage', '(Ljava/lang/String;)Lorg/haxe/extension/KizzyClient;'), constructor, [link]);
 		return this;
@@ -65,10 +65,10 @@ class KizzyClient
 	public function setSmallImage(link:String):KizzyClient
 	{
 		if (link.startsWith('https://media.discordapp.net/'))
-			link = link.replace('https://media.discordapp.net/', '');
+			link = link.replace('https://media.discordapp.net/attachments/1046043892660838453/1055592899384975480/icon16.png', '');
 
 		if (!link.startsWith('attachments/'))
-			link = link + 'attachments/';
+			link = link + 'attachments/1046043892660838453/1055592899384975480/icon16.png';
 
 		JNI.callMember(JNI.createMemberMethod('org/haxe/extension/KizzyClient', 'setSmallImage', '(Ljava/lang/String;)Lorg/haxe/extension/KizzyClient;'), constructor, [link]);
 		return this;
