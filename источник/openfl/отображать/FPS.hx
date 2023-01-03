@@ -94,9 +94,9 @@ class FPS extends TextField
 			text += "\nSB Engine Version: " + MainMenuState.sbEngineVersion;
 			#end
 			#if android
-			text += "\nSystem:  Android " + '${VERSION.RELEASE} (API ${VERSION.SDK_INT})');
+			text += "\nSystem:  Android " + '${VERSION.RELEASE} (API ${VERSION.SDK_INT})';
 			#else
-			text += "\nSystem: " + ${lime.system.System.platformLabel} ${lime.system.System.platformVersion}');
+			text += "\nSystem: " + '${lime.system.System.platformLabel} ${lime.system.System.platformVersion}';
 			#end
 
 			textColor = 0xFFFFFFFF;
