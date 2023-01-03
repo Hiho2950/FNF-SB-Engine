@@ -202,8 +202,9 @@
 	<android permission="android.permission.ACCESS_NETWORK_STATE"/>
 	<android permission="android.permission.INTERNET"/>
 
-		<!--Audio Recording Fix-->
-		<config:android target-sdk-version="29" if="${lime <= 8.0.0}" />
+	<!--Audio Recording Fix-->
+	<section if="android">
+	<config:android target-sdk-version="29" if="${lime <= 8.0.0}" />
 	</section>
 
 	<!-- _________________________________ Custom _______________________________ -->
