@@ -1,5 +1,8 @@
 package openfl.display;
 
+#if android
+import android.os.Build.VERSION;
+#end
 import haxe.Timer;
 import openfl.events.Event;
 import openfl.text.TextField;
@@ -90,9 +93,9 @@ class FPS extends TextField
 			text += "\nMemory: " + memoryMegas + " Megabytes";
 			text += "\nSB Engine Version: " + MainMenuState.sbEngineVersion;
 			#if android
-			text += "\nSystem: Android ${VERSION.RELEASE} (API ${VERSION.SDK_INT})');
+			text += "\nSystem:  Android " + ${VERSION.RELEASE} (API ${VERSION.SDK_INT})');
 			#else
-			text += "\nSystem: ${lime.system.System.platformLabel} ${lime.system.System.platformVersion}');
+			text += "\nSystem: " + ${lime.system.System.platformLabel} ${lime.system.System.platformVersion}');
 			#end
 			#end
 
