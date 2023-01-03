@@ -89,6 +89,11 @@ class FPS extends TextField
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
 			text += "\nMemory: " + memoryMegas + " Megabytes";
 			text += "\nSB Engine Version: " + MainMenuState.sbEngineVersion;
+			#if android
+			text += "\nSystem: Android ${VERSION.RELEASE} (API ${VERSION.SDK_INT})');
+			#else
+			text += "\nSystem: ${lime.system.System.platformLabel} ${lime.system.System.platformVersion}');
+			#end
 			#end
 
 			textColor = 0xFFFFFFFF;
