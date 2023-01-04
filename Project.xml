@@ -204,7 +204,7 @@
 
 	<!--Audio Recording Fix-->
 	<section if="android">
-	<config:android target-sdk-version="29"/>
+	<android target-sdk-version="29"/>
 	</section>
 
 	<!-- _________________________________ Custom _______________________________ -->
