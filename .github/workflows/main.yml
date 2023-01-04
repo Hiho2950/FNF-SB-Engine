@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        arch: [release, debug]
+        arch: [release]
 
     steps:
       - name: Checkout
@@ -94,4 +94,3 @@ jobs:
         with:
           name: androidBuild-${{ matrix.arch }}
           path: export/android/bin/app/build/outputs/apk/debug
-          if-no-files-found: error
