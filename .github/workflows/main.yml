@@ -164,6 +164,9 @@ jobs:
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
+        id: setup-sdk
+        with:
+            sdk-version: 29
 
       - name: Setup Haxe
         uses: krdlab/setup-haxe@v1.1.5
