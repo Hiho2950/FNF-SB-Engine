@@ -145,7 +145,6 @@ jobs:
           name: SB Engine Mac Build
           path: export/release/macos/bin
     androidBuild:
-    name: androidBuild
     runs-on: ubuntu-latest
     strategy:
       matrix:
