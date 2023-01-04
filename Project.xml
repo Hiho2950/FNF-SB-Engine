@@ -202,11 +202,6 @@
 	<android permission="android.permission.ACCESS_NETWORK_STATE"/>
 	<android permission="android.permission.INTERNET"/>
 
-	<!--Audio Recording Fix-->
-	<section if="android">
-	<config:android target-sdk-version="30"/>
-	</section>
-
 	<!-- _________________________________ Custom _______________________________ -->
 
 	<!--Place custom nodes like icons here (higher priority to override the HaxeFlixel icon)-->
