@@ -89,7 +89,7 @@ class CreditsState extends MusicBeatState
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
 			['SB Engine Team'],
-			['StefanBETA2008',	'stefan',				'Main Programmer Of SB Engine',	'https://youtube.com/@StefanBETA2008', 	'FFA500'],
+			['Stefan2008',	'stefan',				'Main Programmer Of SB Engine',	'https://youtube.com/@StefanBETA2008', 	'FFA500'],
 			['Fearester',	'fearester',			'The Collaborator Of The SB Engine', 'https://github.com/Fearester', '00FF00'],
 			['MatejaMoriXS',				'mateja',			'Best Friend 1',										'https://youtube.com/@MATEJAMORIXS', 	'FF0000'],
 			['MihajloMOXI',	'mihajlo',			'Best Friend 2',											'https://youtube.com/@mihajlomoxi', 								'A020F0'],
@@ -241,9 +241,6 @@ class CreditsState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new MainMenuState());
 				quitting = true;
-				FlxTween.tween(FlxG.camera, {zoom: 2}, 5, {
-								ease: FlxEase.quadOut,
-			});
 			}
 		}
 		
