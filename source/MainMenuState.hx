@@ -104,7 +104,7 @@ class MainMenuState extends MusicBeatState
 		
 		// magenta.scrollFactor.set();
 
-		var bgScroll = new FlxBackdrop(Paths.image('Free_Checker'), ScrollX, -33, -32);
+		var bgScroll = new FlxBackdrop(Paths.image('Free_Checker'), #if (flixel_addons < "3.0.0"), -33, -32) true, true, #else XY, #end -33, -32;
 		bgScroll.scrollFactor.set();
 		bgScroll.screenCenter();
 		bgScroll.velocity.set(50, 50);
