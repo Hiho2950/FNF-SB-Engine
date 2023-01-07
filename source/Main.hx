@@ -136,7 +136,7 @@ class Main extends Sprite
 			}
 		}
 
-		errMsg += "\nUncaught Error: " + e.error + "\nPlease Report This Rrror To The GitHub Page: https://github.com/StefanBETA2008/FNF-SB-Engine\n\n> Crash Handler Written By: Sqirra-Rng";
+		errMsg += "\nUncaught Error: " + e.error + "\nPlease Report This Error To The GitHub Page: https://github.com/StefanBETA2008/FNF-SB-Engine\n\n> Crash Handler Written By: Sqirra-Rng";
 
 		if (!FileSystem.exists(SUtil.getPath() + "crash/"))
 			FileSystem.createDirectory(SUtil.getPath() + "crash/");
@@ -146,7 +146,7 @@ class Main extends Sprite
 		Sys.println(errMsg);
 		Sys.println("Crash Dump Saved In: " + Path.normalize(path));
 
-		Application.current.window.alert(errMsg, "SB Engine Code Line Error!");
+		Application.current.window.alert(errMsg, "Error!");
 		#if desktop
 		DiscordClient.shutdown();
 		#end
