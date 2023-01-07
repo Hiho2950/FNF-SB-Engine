@@ -51,10 +51,6 @@ class MainMenuState extends MusicBeatState
 
 	override function create()
 	{
-	        #if (flixel_addons >= "3.0.0")
-	        checker.scrollFactor.set(0.2, 0.2);
-	        #end
-
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 		
@@ -108,7 +104,7 @@ class MainMenuState extends MusicBeatState
 		
 		// magenta.scrollFactor.set();
 
-		var bgScroll = new FlxBackdrop(Paths.image('Free_Checker'), XY, -33, -32);
+		var bgScroll = new FlxBackdrop(Paths.image('Free_Checker'), ScrollX, -33, -32);
 		bgScroll.scrollFactor.set();
 		bgScroll.screenCenter();
 		bgScroll.velocity.set(50, 50);
