@@ -26,14 +26,9 @@ using StringTools;
 
 class MainMenuState extends MusicBeatState
 {
-	public static var psychEngineVersion:String = '0.6.2'; //This is also used for Discord RPC
 	public static var sbEngineVersion:String = '2.1.0'; //This is also used for Discord RPC
-	public static var curSelected:Int = 0;
-	#if (flixel_addons < "3.0.0")
-	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Free_Checker'), 0.2, 0.2, true, true);
-	#else
-	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Free_Checker'));
-	#end
+	public static var psychEngineVersion:String = '0.6.2'; //This is also used for Discord RPC
+	public static var curSelected:Int = 0;	
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
@@ -112,6 +107,13 @@ class MainMenuState extends MusicBeatState
 		add(magenta);
 		
 		// magenta.scrollFactor.set();
+
+		var bgScroll = new FlxBackdrop(Paths.image('Free_Checker'), XY, -33, -32);
+		bgScroll.scrollFactor.set();
+		bgScroll.screenCenter();
+		bgScroll.velocity.set(50, 50);
+		bgScroll.antialiasing = ClientPrefs.globalAntialiasing;
+		add(bgScroll);
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);

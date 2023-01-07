@@ -455,9 +455,6 @@ class TitleState extends MusicBeatState
 			if (touch.justPressed)
 			{
 				pressedEnter = true;
-				FlxTween.tween(FlxG.camera, {zoom: 2}, 4, {
-							ease: FlxEase.sineOut
-						});
 			}
 		}
 		#end
