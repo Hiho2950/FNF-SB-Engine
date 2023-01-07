@@ -7,7 +7,6 @@ import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxCamera;
-import flixel.addons.display.FlxBackdrop;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.effects.FlxFlicker;
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -103,13 +102,6 @@ class MainMenuState extends MusicBeatState
 		add(magenta);
 		
 		// magenta.scrollFactor.set();
-
-		var bgScroll = new FlxBackdrop(Paths.image('Free_Checker'), -33, -32, true, true, XY , -33, -32);
-		bgScroll.scrollFactor.set();
-		bgScroll.screenCenter();
-		bgScroll.velocity.set(50, 50);
-		bgScroll.antialiasing = ClientPrefs.globalAntialiasing;
-		add(bgScroll);
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
