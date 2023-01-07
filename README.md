@@ -5,7 +5,7 @@ The Fanmade Psych Engine With My Version
 _____________________________________
 
 ## Credits:
-* Stefan[BETA]™ - Programmer
+* Stefan2008 - Programmer
 * Fearester - Collaborator
 
 ## Psych Engine Credits:
