@@ -146,7 +146,7 @@ class Main extends Sprite
 		Sys.println(errMsg);
 		Sys.println("Crash Dump Saved In: " + Path.normalize(path));
 
-		Application.current.window.alert(errMsg, "Error!");
+		Application.current.window.alert(errMsg, "SB Engine " + MainMenuState.sbEngineVersion Error!");
 		#if desktop
 		DiscordClient.shutdown();
 		#end
