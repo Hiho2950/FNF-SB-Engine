@@ -85,14 +85,16 @@ class FPS extends TextField
 
 		if (currentCount != cacheCount /*&& visible*/)
 		{
-			text = "Frame Per Second: " + currentFPS;
+			text = "Frame per second: " + currentFPS;
 			var memoryMegas:Float = 0;
 			
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
 			text += "\nMemory: " + memoryMegas + " Megabytes";
-			text += "\nSB Engine Version: " + MainMenuState.sbEngineVersion;
-			text += "\nOperating System: " + '${lime.system.System.platformLabel} ${lime.system.System.platformVersion}';
+			text += "\nSB Engine version: " + MainMenuState.sbEngineVersion;
+			text += "\nOperating system: " + '${lime.system.System.platformLabel} ${lime.system.System.platformVersion}';
+                        text += "\nGL Render: " + '${getGLInfo(RENDERER)}');
+                        text += "\nGL Shading version: " + '${getGLInfo(SHADING_LANGUAGE_VERSION)}');
 			#end
 
 			textColor = 0xFFFFFFFF;
