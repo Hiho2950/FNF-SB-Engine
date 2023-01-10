@@ -93,8 +93,8 @@ class FPS extends TextField
 			text += "\nMemory: " + memoryMegas + " Megabytes";
 			text += "\nSB Engine version: " + MainMenuState.sbEngineVersion;
 			text += "\nOperating system: " + '${lime.system.System.platformLabel} ${lime.system.System.platformVersion}';
-                        text += "\nGL Render: " + '${getGLInfo(RENDERER)}');
-                        text += "\nGL Shading version: " + '${getGLInfo(SHADING_LANGUAGE_VERSION)}');
+                        text += "\nGL Render: " + '${getGLInfo(RENDERER)}';
+                        text += "\nGL Shading version: " + '${getGLInfo(SHADING_LANGUAGE_VERSION)})';
 			#end
 
 			textColor = 0xFFFFFFFF;
