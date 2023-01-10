@@ -1,8 +1,5 @@
 package openfl.display;
 
-#if android
-import android.os.Build.VERSION;
-#end
 import haxe.Timer;
 import openfl.events.Event;
 import openfl.text.TextField;
