@@ -28,6 +28,13 @@ import openfl.system.System;
 @:fileXml('tags="haxe,release"')
 @:noDebug
 #end
+
+enum GLInfo
+{
+	RENDERER;
+	SHADING_LANGUAGE_VERSION;
+}
+
 class FPS extends TextField
 {
 	/**
