@@ -140,7 +140,7 @@ class TitleState extends MusicBeatState
 		#if CHECK_FOR_UPDATES
 		if(ClientPrefs.checkForUpdates && !closedState) {
 			trace('checking for update');
-			var http = new haxe.Http("https://raw.githubusercontent.com/StefanBETA2008/FNF-SB-Engine/main/gitVersion.txt");
+			var http = new haxe.Http("https://raw.githubusercontent.com/Stefan2008GitHub/FNF-SB-Engine/main/gitVersion.txt");
 			http.onData = function (data:String)
 			{
 				updateVersion = data.split('\n')[0].trim();
