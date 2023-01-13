@@ -91,8 +91,6 @@ class CreditsState extends MusicBeatState
 			['SB Engine Team'],
 			['Stefan2008',	'stefan',				'Main Programmer Of SB Engine',	'https://youtube.com/@StefanBETA2008', 	'FFA500'],
 			['Fearester',	'fearester',			'The Collaborator Of The SB Engine', 'https://github.com/Fearester', '00FF00'],
-			['MatejaMoriXS',				'mateja',			'Best Friend 1',										'https://youtube.com/@MATEJAMORIXS', 	'FF0000'],
-			['MihajloMOXI',	'mihajlo',			'Best Friend 2',											'https://youtube.com/@mihajlomoxi', 								'A020F0'],
 			[''],
 			['Android Support'],
 			['Saw (M.A. Jigsaw)',	'jigsaw',				'Main Programmer of Psych Engine\nWith Android Support',	'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 	'444444'],
