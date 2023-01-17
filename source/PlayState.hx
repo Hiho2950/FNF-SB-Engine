@@ -1203,7 +1203,7 @@ class PlayState extends MusicBeatState
 			songTxt.visible = false;
 		}
 		add(songTxt);
-		songTxt.text = curSong + " (" + storyDifficultyText + ") " + "| SB Engine Version: " + MainMenuState.sbEngineVersion;
+		songTxt.text = curSong + " (" + CoolUtil.difficultyString + ") " + "| SB Engine Version: " + MainMenuState.sbEngineVersion;
 
 		judgementCounter = new FlxText(20, 0, 0, "", 20);
 		judgementCounter.setFormat(Paths.font("vcr.ttf"), 25, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -1238,6 +1238,7 @@ class PlayState extends MusicBeatState
 		scoreTxt.cameras = [camHUD];
 		songTxt.cameras = [camHUD];
 		botplayTxt.cameras = [camHUD];
+		judgementCounter.cameras = [camHUD];
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
