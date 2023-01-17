@@ -1,7 +1,7 @@
 # Friday Night Funkin' SB Engine
 ![sbenginelogo](https://raw.githubusercontent.com/StefanBETA2008/SB-Engine-Slike/main/Slike/SB%20Engine%20Slike/Picsart_22-09-03_14-11-52-190.png)
 
-The Fanmade Psych Engine With My Version
+The Fanmade Psych Engine with my version
 _____________________________________
 
 ## Credits:
@@ -25,9 +25,8 @@ _____________________________________
 * Nebula the Zorua - LUA JIT Fork and some Lua reworks
 
 ### Android Support:
-* Saw (M.A. Jigsaw) - All the things needed for this engine to support android
-_____________________________________
-
+* Saw (M.A. Jigsaw) - All the things needed for this engine to support android and he's maked the functionality code line for the graphic card detector on [Test-Base](
+https://github.com/MAJigsaw77/Test-Base)
 # Features
 
 # 🚧 PROJECT ISN'T DONE AND IT'S ON THE CONSTRUCTION. PLEASE WAIT 🚧
