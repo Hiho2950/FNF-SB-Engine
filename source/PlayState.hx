@@ -1203,7 +1203,7 @@ class PlayState extends MusicBeatState
 			songTxt.visible = false;
 		}
 		add(songTxt);
-		songTxt.text = curSong + " (" + CoolUtil.storyDifficultyText + ") " + "| SB Engine Version: " + MainMenuState.sbEngineVersion;
+		songTxt.text = curSong + " [" + storyDifficulty + "] " + " | SB Engine Version: " + MainMenuState.sbEngineVersion;
 
 		judgementCounter = new FlxText(20, 0, 0, "", 20);
 		judgementCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
