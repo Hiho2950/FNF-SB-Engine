@@ -1,16 +1,16 @@
-name: Bug report
-description: Report bugs with the engine here
-labels: [bug]
+name: SB Engine bug tab report
+description: You can report any bug's here for the SB Engine
+labels: [SB Engine bug]
 body:
   - type: textarea
-    id: description
+    id: Description
     attributes:
-      label: "Describe your bug here."
+      label: "Describe your SB Engine bug here."
     validations:
       required: true
 
   - type: textarea
-    id: terminal
+    id: Terminal
     attributes:
       label: "Command Prompt/Terminal logs (if existing)"
       render: bash
@@ -18,7 +18,7 @@ body:
       required: false
 
   - type: dropdown
-    id: modding
+    id: Modding
     attributes:
       label: "Are you modding a build from source or with Lua?"
       options:
@@ -28,23 +28,22 @@ body:
       required: true
 
   - type: dropdown
-    id: btarget
+    id: Btarget
     attributes:
       label: "What is your build target?"
       options:
-        - "Windows"
+        - "Android"
         - "Linux"
-        - "Mac"
         - "HTML5"
-        - "Flash/Air-based target"
-        - "Neko, HashLink, or other build system"
+        - "Mac"
+        - "Windows"
     validations:
       required: true
 
   - type: input
-    id: buildsummary
+    id: Buildsummary
     attributes:
       label: "Did you edit anything in this build? If so, mention or summarize your changes."
-      placeholder: "Yes, I edited ClientPrefs.hx and tried to add a new setting"
+      placeholder: "Yes, I edited State.hx or SubState.hx and tried to add a new setting"
     validations:
       required: true
