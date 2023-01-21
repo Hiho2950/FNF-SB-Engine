@@ -1,6 +1,6 @@
 name: Question
 description: You can ask everything for the SB Engine.
-labels: [question]
+labels: [Question]
 body:
   - type: textarea
     attributes:
