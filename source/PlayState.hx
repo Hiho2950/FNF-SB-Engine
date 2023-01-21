@@ -1210,7 +1210,6 @@ class PlayState extends MusicBeatState
 		judgementCounter.borderSize = 2;
 		judgementCounter.borderQuality = 2;
 		judgementCounter.scrollFactor.set();
-                judgementCounter.cameras = [camHUD];
 		judgementCounter.screenCenter(Y);
 		judgementCounter.text = 'Judgement counter: \nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nFreaks: ${shits}\nMisses: ${songMisses}';
 		if (ClientPrefs.judgementCounter)
@@ -1237,6 +1236,7 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		songTxt.cameras = [camHUD];
+        judgementCounter.cameras = [camHUD];
 		botplayTxt.cameras = [camHUD];
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
@@ -2311,6 +2311,7 @@ class PlayState extends MusicBeatState
 			+ ' | Misses: ' + songMisses 
 			+ ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' 
 			+ ' | ' + ratingName + ' [' + ratingFC + ']';
+        judgementCounter.text = 'judgement Counter:\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nFreaks: ${shits}\nMisses: ${songMisses}';
 
 		if(ClientPrefs.scoreZoom && !miss && !cpuControlled)
 		{
