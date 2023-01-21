@@ -1206,13 +1206,12 @@ class PlayState extends MusicBeatState
 		songTxt.text = curSong + " [" + storyDifficulty + "] " + " | SB Engine Version: " + MainMenuState.sbEngineVersion;
 
 		judgementCounter = new FlxText(20, 0, 0, "", 20);
-		judgementCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		judgementCounter.setFormat(Paths.font("vcr.ttf"), 25, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		judgementCounter.borderSize = 2;
 		judgementCounter.borderQuality = 2;
 		judgementCounter.scrollFactor.set();
-		judgementCounter.cameras = [camHUD];
 		judgementCounter.screenCenter(Y);
-		judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nFreaks: ${shits}\nMisses: ${songMisses}';
+		judgementCounter.text = 'Judgement counter: \nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nFreaks: ${shits}\nMisses: ${songMisses}';
 		if (ClientPrefs.judgementCounter)
 			{
 				add(judgementCounter);
@@ -1237,6 +1236,7 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		songTxt.cameras = [camHUD];
+                judgementCounter.cameras = [camHUD];
 		botplayTxt.cameras = [camHUD];
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
