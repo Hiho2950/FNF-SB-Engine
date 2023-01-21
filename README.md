@@ -1,4 +1,5 @@
 # Friday Night Funkin' SB Engine
+[![SB Engine status](https://github.com/Stefan2008GitHub/FNF-SB-Engine/blob/main/.github/workflows/main.yml/badge.svg)](https://github.com/Stefan2008GitHub/FNF-SB-Engine/blob/main/.github/workflows/main.yml)
 ![sbenginelogo](https://raw.githubusercontent.com/StefanBETA2008/SB-Engine-Slike/main/Slike/SB%20Engine%20Slike/Picsart_22-09-03_14-11-52-190.png)
 
 The Fanmade Psych Engine with my version
