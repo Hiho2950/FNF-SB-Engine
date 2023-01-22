@@ -49,8 +49,12 @@ class GameExitMenuState extends MusicBeatState
 	var selectorRight:Alphabet;
 
 	override function create() {
+		
+		Paths.clearStoredMemory();
+		Paths.clearUnusedMemory();
+		
 		#if desktop
-		DiscordClient.changePresence("Game Closing Menu", null);
+		DiscordClient.changePresence("SB Engine exit game", null);
 		#end
 
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
